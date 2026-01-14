@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo List</title>
+</head>
+<body>
+
+<h1>Todo List</h1>
+
+<ul>
+    {{#todos}}
+        <li>
+            {{title}}
+            [
+            {{#status}}완료{{/status}}
+            {{^status}}미완료{{/status}}
+            ]
+            <form action="/todos/{{id}}/status" method="post">
+                <button type="submit">상태 변경</button>
+            </form>
+            <form action="/todos/{{id}}/delete" method="post">
+                <button type="submit">삭제</button>
+            </form>
+        </li>
+    {{/todos}}
+</ul>
+
+<a href="/todos/new">할 일 추가</a>
+
+</body>
+</html>
